@@ -98,7 +98,7 @@ try {
         Write-Host "Created global.json with MTP runner configuration"
     }
 
-    for ($p = 1; $p -le $Projects; $p++) 
+    for ($p = 1; $p -le $Projects; $p++) {
         $projectName = "TestProject$p"
         $projectDir = Join-Path $OutputPath $projectName
         $paddedP = $p.ToString().PadLeft($Projects.ToString().Length, '0')
@@ -192,6 +192,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
     Write-Host ""
     Write-Host "To build:  dotnet build `"$slnPath`""
     Write-Host "To test:   dotnet test `"$slnPath`""
+}
+catch {
+    Write-Error "An error occurred: $_"
+    throw
 }
 finally {
     Pop-Location
