@@ -17,6 +17,19 @@ namespace XUnit.MTPv2
         {
         }
 
+        [Fact]
+        public void StreamsTestHostOutput()
+        {
+            Stream standardOutput = Console.OpenStandardOutput();
+            Stream standardError = Console.OpenStandardError();
+
+            WriteTestHostLine(standardOutput, "[xUnit MTP v2] stdout 1/3: test started");
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            WriteTestHostLine(standardError, "[xUnit MTP v2] stderr 2/3: test is still running");
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            WriteTestHostLine(standardOutput, "[xUnit MTP v2] stdout 3/3: test is completing");
+        }
+
         [Theory]
         [InlineData("one")]
         [InlineData("two")]
@@ -62,6 +75,14 @@ namespace XUnit.MTPv2
         [MemberData(nameof(MemberDataSource), DisableDiscoveryEnumeration = true)]
         public void NonExpandedMemberDataTestWithDisplayName(SerializableTestData data)
         {
+        }
+
+        private static void WriteTestHostLine(Stream stream, string message)
+        {
+            // Bypass framework capture so the host process emits each line immediately.
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(message + Environment.NewLine);
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Flush();
         }
     }
 }
