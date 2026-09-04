@@ -1,5 +1,6 @@
 {
     // "dotnet.testWindow.disableAutoDiscovery": true,
     // "dotnet.testWindow.disableBuildOnRefresh": true,
-    "dotnet.testWindow.enableNextTest": true
+    "dotnet.testWindow.enableNextTest": true,
+    "dotnet.projectsystem.cacheInProjectFolder": false
 }
