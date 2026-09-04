@@ -35,6 +35,7 @@ namespace XUnit.MTPv2
         [InlineData("two")]
         public void ExpandedParameterizedTest(string s)
         {
+            _ = s;
         }
 
         [Theory(DisplayName = "Expanded Parameterized Test With Display Name")]
@@ -42,6 +43,7 @@ namespace XUnit.MTPv2
         [InlineData("two")]
         public void ExpandedParameterizedTestWithDisplayName(string s)
         {
+            _ = s;
         }
 
         public static IEnumerable<object[]> MemberDataSource
@@ -57,24 +59,28 @@ namespace XUnit.MTPv2
         [MemberData(nameof(MemberDataSource))]
         public void ExpandedMemberDataTest(SerializableTestData data)
         {
+            _ = data;
         }
 
         [Theory(DisplayName = "Expanded Member Data Test With Display Name")]
         [MemberData(nameof(MemberDataSource))]
         public void ExpandedMemberDataTestWithDisplayName(SerializableTestData data)
         {
+            _ = data;
         }
 
         [Theory]
         [MemberData(nameof(MemberDataSource), DisableDiscoveryEnumeration = true)]
         public void NonExpandedMemberDataTest(SerializableTestData data)
         {
+            _ = data;
         }
 
         [Theory(DisplayName = "Expanded Member Data Test With Display Name")]
         [MemberData(nameof(MemberDataSource), DisableDiscoveryEnumeration = true)]
         public void NonExpandedMemberDataTestWithDisplayName(SerializableTestData data)
         {
+            _ = data;
         }
 
         private static void WriteTestHostLine(Stream stream, string message)

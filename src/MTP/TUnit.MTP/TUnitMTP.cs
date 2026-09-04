@@ -42,10 +42,10 @@
         {
         }        
 
-        public static IEnumerable<SerializableTestData> MethodDataSourceData()
+        public static IEnumerable<Func<SerializableTestData>> MethodDataSourceData()
         {
-            yield return new SerializableTestData { Name = "First", Value = 1 };
-            yield return new SerializableTestData { Name = "Second", Value = 2 };
+            yield return () => new SerializableTestData { Name = "First", Value = 1 };
+            yield return () => new SerializableTestData { Name = "Second", Value = 2 };
         }
 
         [Test]
