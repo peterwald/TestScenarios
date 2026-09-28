@@ -1,4 +1,6 @@
 {
-    "dotnet.testWindow.enableNextTest": true,
     "dotnet.projectsystem.cacheInProjectFolder": false
+    // "dotnet.server.componentPaths": {
+    //     "testDiscovery": "C:\\src\\vs-green\\server\\bin\\CSDevKit.SourceTestDiscovery\\Debug\\net10.0"
+    // }
 }
