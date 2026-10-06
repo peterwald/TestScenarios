@@ -1,5 +1,6 @@
 {
-    "dotnet.projectsystem.cacheInProjectFolder": false
+    "dotnet.projectsystem.cacheInProjectFolder": false,
+    "dotnet.testWindow.useTestPlatformPath": "C:\\Users\\pewaldsc\\Downloads\\vstest-signed-nugets-six-lines-20260923\\packages\\18.12\\Microsoft.TestPlatform.18.12.0-hotfix-26468-24\\tools\\net462\\Common7\\IDE\\Extensions\\TestPlatform"
     // "dotnet.server.componentPaths": {
     //     "testDiscovery": "C:\\src\\vs-green\\server\\bin\\CSDevKit.SourceTestDiscovery\\Debug\\net10.0"
     // }
